@@ -3,7 +3,7 @@ public class romanToInt {
 
 	public static void main(String[] args) {
 		
-		String s = "XXIII";
+		String s = "LIV";
 		
 		//assigning relative integers for the romans
 		int  I = 1;
@@ -17,16 +17,16 @@ public class romanToInt {
 		//store the string in a char array
 		char arr[] = s.toCharArray();
 		
-		/*
-		 * assign integers to relevant characters
-		 * according to the assignments of above
-		 */
+		//integer array
 		int valueArr[];
 		valueArr = new int[15];
 		
 		int num = 0;
 		
-		//calculate the interger value
+		/*
+		 * assign integers to relevant characters
+		 * according to the assignments of above
+		 */
 		for(int i = 0; i < s.length(); i++) {
 			
 			if(arr[i] == 'I')
@@ -55,8 +55,13 @@ public class romanToInt {
 		}
 		
 		//calculate the integer value
-		for(int j = 0; j < s.length(); j++) {	
-			num = num + valueArr[j];	
+		for(int j = 0; j < s.length(); j++) {
+			
+			//handle situations :"XXIV"
+			if(valueArr[j] < valueArr[j+1]) {
+				valueArr[j] = -valueArr[j];
+			}	
+			num = num + valueArr[j];
 		}
 		
 		System.out.println(num);
