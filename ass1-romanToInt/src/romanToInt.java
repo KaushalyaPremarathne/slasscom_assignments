@@ -3,7 +3,7 @@ public class romanToInt {
 
 	public static void main(String[] args) {
 		
-		String s = "XX";
+		String s = "XXIII";
 		
 		//assigning relative integers for the romans
 		int  I = 1;
@@ -14,46 +14,50 @@ public class romanToInt {
 		int  D = 500;
 		int  M = 1000;
 		
-		int count_i = 0;
-		int count_v = 0;
-		int count_x = 0;
-		int count_l = 0;
-		int count_c = 0;
-		int count_d = 0;
-		int count_m = 0;
-		
 		//store the string in a char array
 		char arr[] = s.toCharArray();
+		
+		/*
+		 * assign integers to relevant characters
+		 * according to the assignments of above
+		 */
+		int valueArr[];
+		valueArr = new int[15];
+		
+		int num = 0;
 		
 		//calculate the interger value
 		for(int i = 0; i < s.length(); i++) {
 			
 			if(arr[i] == 'I')
-				count_i++ ;
+				valueArr[i] = I;
 			
 			else if(arr[i] == 'V')
-				count_v++;
+				valueArr[i] = V;
 			
 			else if(arr[i] == 'X')
-				count_x++;
+				valueArr[i] = X;
 			
 			else if(arr[i] == 'L')
-				count_l++;
+				valueArr[i] = L;
 			
 			else if(arr[i] == 'C')
-				count_c++;
+				valueArr[i] = C;
 			
 			else if(arr[i] == 'D')
-				count_d++;
+				valueArr[i] = D;
 			
 			else if(arr[i] == 'M')
-				count_m++;
+				valueArr[i] = M;
 			
 			else
 				System.out.println("Invalid character");
 		}
 		
-		int num = count_i + count_v * V + count_x * X + count_l * L + count_c * C + count_d * D + count_m * M;
+		//calculate the integer value
+		for(int j = 0; j < s.length(); j++) {	
+			num = num + valueArr[j];	
+		}
 		
 		System.out.println(num);
 	}
