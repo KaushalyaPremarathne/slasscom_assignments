@@ -41,7 +41,7 @@ public class Stack {
 	//pop --> remove
 	public char pop() {
 		if(!isEmpty()) 
-			return stackArray[top];
+			return stackArray[top--];
 		else
 			System.out.println("The stack is empty");
 			return (char)-99;
