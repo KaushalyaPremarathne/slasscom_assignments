@@ -21,7 +21,7 @@ public class assignment2 {
 		int size = arr.length;
 		
 		Stack newStack = new Stack(size);
-		
+		int n = 0;
 		//check characters
 		if(size == 0) 
 			System.out.println("Null value");
@@ -33,10 +33,10 @@ public class assignment2 {
 				else if (arr[i] == '}' || arr[i] == ']' || arr[i] == ')') {
 					int j = close.indexOf(arr[i]);
 					if (newStack.pop() == open.charAt(j)) {
-						int n = 1;
+						n = 1;
 					}
 					else {
-						System.out.println("Invalid Statement");
+						n = 0;
 						break;
 					}
 				}
@@ -44,7 +44,7 @@ public class assignment2 {
 			
 			
 			//validation
-			if(newStack.isEmpty())
+			if(newStack.isEmpty() && n == 1)
 				System.out.println("Valid");
 			else
 				System.out.println("Invalid");
