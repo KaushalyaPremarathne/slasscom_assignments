@@ -23,26 +23,33 @@ public class assignment2 {
 		Stack roundedBracket = new Stack(size);
 		
 		//check characters
-		for(int i = 0; i < size; i++) {
-			if(arr[i] == '(')
-				roundedBracket.push(arr[i]);
-			else if(arr[i] == ')')
-				roundedBracket.pop();
-			else if(arr[i] == '{')
-				curlyBracket.push(arr[i]);
-			else if(arr[i] == '}')
-				curlyBracket.pop();
-			if(arr[i] == '[')
-				squareBracket.push(arr[i]);
-			else if(arr[i] == ']')
-				squareBracket.pop();
+		if(size == 0) 
+			System.out.println("Null value");
+		else {
+			for(int i = 0; i < size; i++) {
+				if(arr[i] == '(')
+					roundedBracket.push(arr[i]);
+				else if(arr[i] == ')')
+					roundedBracket.pop();
+				else if(arr[i] == '{')
+					curlyBracket.push(arr[i]);
+				else if(arr[i] == '}')
+					curlyBracket.pop();
+				if(arr[i] == '[')
+					squareBracket.push(arr[i]);
+				else if(arr[i] == ']')
+					squareBracket.pop();
+			}
+			
+			//validation
+			if(curlyBracket.isEmpty() && roundedBracket.isEmpty() && squareBracket.isEmpty())
+				System.out.println("Valid Statement");
+			else
+				System.out.println("Invalid");
 		}
 		
-		//validation
-		if(curlyBracket.isEmpty() && roundedBracket.isEmpty() && squareBracket.isEmpty())
-			System.out.println("Valid Statement");
-		else
-			System.out.println("Invalid");
+		
+		
 		
 	}
 
