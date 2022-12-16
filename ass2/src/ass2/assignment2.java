@@ -15,41 +15,41 @@ public class assignment2 {
 		//convert the string to a char array
 		char arr[] = str.toCharArray();
 		
+		String open = "({[";
+		String close = ")}]";
+		
 		int size = arr.length;
 		
-		//create stacks base on bracket type
-		Stack curlyBracket = new Stack(size);
-		Stack squareBracket = new Stack(size);
-		Stack roundedBracket = new Stack(size);
+		Stack newStack = new Stack(size);
 		
 		//check characters
 		if(size == 0) 
 			System.out.println("Null value");
 		else {
-			for(int i = 0; i < size; i++) {
-				if(arr[i] == '(')
-					roundedBracket.push(arr[i]);
-				else if(arr[i] == ')')
-					roundedBracket.pop();
-				else if(arr[i] == '{')
-					curlyBracket.push(arr[i]);
-				else if(arr[i] == '}')
-					curlyBracket.pop();
-				if(arr[i] == '[')
-					squareBracket.push(arr[i]);
-				else if(arr[i] == ']')
-					squareBracket.pop();
+			for( int i = 0; i < size; i++) {
+				if (arr[i] == '{' || arr[i] == '[' || arr[i] == '(') {
+					newStack.push(arr[i]);
+				}
+				else if (arr[i] == '}' || arr[i] == ']' || arr[i] == ')') {
+					int j = close.indexOf(arr[i]);
+					if (newStack.pop() == open.charAt(j)) {
+						int n = 1;
+					}
+					else {
+						System.out.println("Invalid Statement");
+						break;
+					}
+				}
 			}
 			
+			
 			//validation
-			if(curlyBracket.isEmpty() && roundedBracket.isEmpty() && squareBracket.isEmpty())
-				System.out.println("Valid Statement");
+			if(newStack.isEmpty())
+				System.out.println("Valid");
 			else
 				System.out.println("Invalid");
+			
 		}
-		
-		
-		
 		
 	}
 
