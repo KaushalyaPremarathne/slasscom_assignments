@@ -1,8 +1,6 @@
-import javax.imageio.stream.ImageInputStream;
-
 //import static sun.security.util.Debug.args;
 
-public class insertionSort {
+public class ass3 {
 
     public static void selectionSort(int[] numArray){
 
@@ -31,22 +29,32 @@ public class insertionSort {
         int size = numArray.length;
 
         selectionSort(numArray);//sorting array using selection sort
+        
+        int maxCount = 0;
+        int median = 0;
+        int mode = 0;
 
-        int count = 0;
-        int median, mode = 0;
-
-        for(int i:numArray){
-            count++;
-        }
-
-        if(count % 2 == 0)
-            median = (numArray[count/2] + numArray[(count/2)+1]) / 2;
+        if(size % 2 == 0)
+            median = (numArray[size/2] + numArray[(size/2)+1]) / 2;
         else
-            median = numArray[count/2];
+            median = numArray[size/2];
 
         System.out.println("Median : " + median);
         System.out.println("Highest Value : " + numArray[size-1]);
 
-        
+        for(int i = 0; i < size; i++){
+            int count = 0;
+            for(int j = 0; j < size; j++){
+                if( numArray[i] == numArray[j])
+                    count ++;
+            }
+
+            if (count > maxCount){
+                maxCount = count;
+                mode = numArray[i];
+            }
+        }
+
+        System.out.println("Mode : " + mode);
     }
 }
