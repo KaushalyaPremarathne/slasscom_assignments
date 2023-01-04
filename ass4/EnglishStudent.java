@@ -17,6 +17,7 @@ public class EnglishStudent extends Student{
 
     @Override
     public float calcAverage() {
+
         return 0;
     }
 }
