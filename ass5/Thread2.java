@@ -1,14 +1,16 @@
 public class Thread2 extends Thread{
 
-    double EPF = 0;
-    public void run(){
-        //calculate EPF
-        public void calcEPF(double monthlyEarning){
-             EPF = monthlyEarning * 8 / 100;
-        }
+    private Calculations calc;
+    private double monthlyEarning;
+
+    public Thread2(Calculations calc, double monthlyEarning) {
+        this.calc = calc;
+        this.monthlyEarning = monthlyEarning;
     }
 
-    public double getEPF(){
-        return EPF;
+    public void run(){
+        calc.calcEPF(monthlyEarning);
     }
+
+
 }

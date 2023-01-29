@@ -1,13 +1,16 @@
 public class Thread3 extends Thread{
 
-    double allowance = 0;
-    public void run(){
-        public void calcAllowance(double basicSal){
-            allowance = basicSal * 5 / 100;
-        }
+    private Calculations calc;
+    private double basicSal;
+
+    public Thread3(Calculations calc, double basicSal) {
+        this.calc = calc;
+        this.basicSal = basicSal;
     }
 
-    public double getAllowance(){
-        return  allowance;
+    public void run(){
+        calc.calcAllowance(basicSal);
     }
+
+
 }
